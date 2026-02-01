@@ -20,7 +20,7 @@ The most professional way to do this is by using a CI/CD Runner that treats Prox
 There are community-developed tools and plugins designed specifically for this "disposable" container workflow:
 * Proxmox LaunchPad: A GitHub Action that can create and delete Proxmox containers directly from your workflow file.
 * Terraform: You can use Terraform to "apply" a container configuration before a build and "destroy" it immediately after. This is common in DevOps pipelines to ensure a clean environment every time. 
-** Why choose this over Docker? ** 
+### Why choose this over Docker?
 * Speed: LXC clones start nearly instantly.
 * Full OS Environment: Unlike Docker, the build environment is a full Linux OS, which is helpful for complex builds requiring system-level dependencies. 
-Recommendation: If you want this to be automatic, setting up a GitLab Runner with a Custom Executor or using the Proxmox LaunchPad GitHub Action is the most reliable way to ensure containers are always cleaned up after a build. 
+* Recommendation: If you want this to be automatic, setting up a GitLab Runner with a Custom Executor or using the Proxmox LaunchPad GitHub Action is the most reliable way to ensure containers are always cleaned up after a build.
