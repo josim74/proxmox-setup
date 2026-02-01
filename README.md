@@ -8,10 +8,10 @@ Proxmox provides its own built-in tools for managing groups of LXCs:
 ## Create and destroy lxc container automatically
 1. Automation via CLI (pct)
 You can use the Proxmox Container Toolkit (pct) to script this manually. A typical build script would look like this: 
-Create: pct clone <template_id> <new_id> (cloning is faster than a fresh install).
-Start: pct start <new_id>.
-Build: pct exec <new_id> -- /bin/bash /path/to/build_script.sh.
-Destroy: pct stop <new_id> && pct destroy <new_id>. 
+* Create: pct clone <template_id> <new_id> (cloning is faster than a fresh install).
+* Start: `pct start <new_id>`
+* Build: `pct exec <new_id> -- /bin/bash /path/to/build_script.sh`
+* Destroy: `pct stop <new_id> && pct destroy <new_id>`
 2. CI/CD Runner Integration
 The most professional way to do this is by using a CI/CD Runner that treats Proxmox as a "cloud" provider:
 GitLab Runner (Custom Executor): You can use the Custom Executor to run scripts that call the Proxmox API. Every time a build starts, GitLab triggers a script to spin up an LXC, runs the build, and then triggers a cleanup script to delete it.
